@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1">
+  <category name="Kimitri Scripts">
+    <reapack name="VU_FX_Keeper.lua" type="script" desc="Keep a chosen VU meter at the end of FX chain and move new FX before it">
+      <version name="1.0" author="Kimitri" time="2025-08-25T00:00:00Z">
+        <source file="Scripts/VU_FX_Keeper/VU_FX_Keeper.lua"/>
+      </version>
+    </reapack>
+  </category>
+</index>
