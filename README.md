@@ -15,7 +15,7 @@ This script was created to simulate the workflow of **legendary analog mixing co
 - It is especially useful when using plugins that support **“Show embedded UI in MCP”**, such as **VU Meter (ZenoMOD)**, since you can always keep visual feedback right inside the mixer.  
 
 ## 🛠 Installation
-1. Copy the script file (`MoveFXBefore.lua`) into your REAPER Scripts folder; 
+1. Copy the script file (`VU_FX_Keeper.lua`) into your REAPER Scripts folder; 
 
 2. In REAPER, open the **Action List**, click *Load…*, and select the script.  
 3. Run the script (or set it to run at startup).  
