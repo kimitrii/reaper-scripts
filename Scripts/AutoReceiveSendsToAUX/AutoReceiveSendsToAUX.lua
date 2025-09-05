@@ -1,7 +1,6 @@
 -- @description Auto Receive Sends to Selected Track if inside chosen AUX folder (ignore folders)
 -- @version 1.0
 -- @author Kimitri
--- @about
 
 local EXT_SECTION = "AutoSendsAUX"
 local EXT_KEY = "aux_name"
