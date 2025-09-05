@@ -1,5 +1,5 @@
 -- @description Move new FX before the chosen FX only when there is a change
--- @version 1.2
+-- @version 1.3
 -- @author Kimitri
 
 local EXT_SECTION = "MoveFXBefore"
@@ -46,22 +46,29 @@ local function checkFX()
             local prev_count = last_fx_count[i] or 0
 
             if fx_count > prev_count then
-                -- schedule repositioning for the next cycle
-                pending_moves[i] = {prev_count = prev_count, fx_count = fx_count}
+                local vu_index = findVU(track, fx_count)
+                if vu_index and vu_index < fx_count - 1 then
+                    pending_moves[i] = {prev_count = prev_count, fx_count = fx_count, vu_index = vu_index}
+                end
             end
 
             last_fx_count[i] = fx_count
+        end
+
+        -- clear deleted tracks cache
+        for i = num_tracks, #last_fx_count do
+            last_fx_count[i] = nil
+            vu_index_cache[i] = nil
         end
     end
 
     -- process pending moves (one cycle after detection)
     for i, data in pairs(pending_moves) do
         local track = reaper.GetTrack(0, i)
-        local vu_index = vu_index_cache[i]
+        local vu_index = data.vu_index or vu_index_cache[i]
 
         if not vu_index or vu_index >= data.fx_count then
             vu_index = findVU(track, data.fx_count)
-            vu_index_cache[i] = vu_index
         end
 
         if vu_index then
