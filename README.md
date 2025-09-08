@@ -9,10 +9,10 @@ You can download the full **REAPER configuration file** containing my **custom w
 
 #### How to Install
 1. Go to the [Releases page](https://github.com/kimitrii/reaper-scripts/releases).  
-2. Download the `.ReaperConfigZip` file.  
+2. Download the `Kimitri-Reaper-Config.rar` file and extract it.  
 3. In REAPER, open:
    Options > Preferences > General > Import Configuration  
-4. Select the downloaded `.ReaperConfigZip`.  
+4. Select the extracted file `Kimitri-Reaper-Config.ReaperConfigZip`.  
 5. Choose what to import (scripts, menus, toolbars, actions).  
 6. Restart REAPER and enjoy the workflow. ✅
 
