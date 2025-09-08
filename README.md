@@ -4,6 +4,9 @@ A collection of custom **REAPER scripts** designed to speed up workflow, improve
 
 These scripts are lightweight, easy to install, and each one focuses on solving a very specific problem. 
 
+### 📥 Download
+Grab the `.ReaperConfigZip` file from the [Releases](https://github.com/kimitrii/reaper-scripts/releases) page.
+
 <details>
  <summary><b>Move new FX before the chosen FX</b></summary>
 
