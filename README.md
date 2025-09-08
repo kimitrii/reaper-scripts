@@ -5,7 +5,7 @@ A collection of custom **REAPER scripts** designed to speed up workflow, improve
 These scripts are lightweight, easy to install, and each one focuses on solving a very specific problem. 
 
 ### 📥 Download
-You can download the full **REAPER configuration file** containing my **custom workflow, scripts, key mappings, and settings** from the [Releases](https://github.com/kimitrii/reaper-scripts/releases) page.  
+You can download the full **REAPER configuration file** containing my **custom workflow, this repository scripts setting up correctly, key mappings, and settings** from the [Releases](https://github.com/kimitrii/reaper-scripts/releases) page.  
 
 #### How to Install
 1. Go to the [Releases page](https://github.com/kimitrii/reaper-scripts/releases).  
