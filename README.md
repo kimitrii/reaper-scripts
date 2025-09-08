@@ -5,7 +5,16 @@ A collection of custom **REAPER scripts** designed to speed up workflow, improve
 These scripts are lightweight, easy to install, and each one focuses on solving a very specific problem. 
 
 ### 📥 Download
-Grab the `.ReaperConfigZip` file from the [Releases](https://github.com/kimitrii/reaper-scripts/releases) page.
+You can download the full **REAPER configuration file** containing my **custom workflow, scripts, key mappings, and settings** from the [Releases](https://github.com/kimitrii/reaper-scripts/releases) page.  
+
+#### How to Install
+1. Go to the [Releases page](https://github.com/kimitrii/reaper-scripts/releases).  
+2. Download the `.ReaperConfigZip` file.  
+3. In REAPER, open:
+   Options > Preferences > General > Import Configuration  
+4. Select the downloaded `.ReaperConfigZip`.  
+5. Choose what to import (scripts, menus, toolbars, actions).  
+6. Restart REAPER and enjoy the workflow. ✅
 
 <details>
  <summary><b>Move new FX before the chosen FX</b></summary>
