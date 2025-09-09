@@ -170,3 +170,37 @@ It’s perfect for workflows where you have multiple effect returns grouped unde
 </details> 
 
 </details>
+
+<details>
+ <summary><b>Toggle Folder Collapse (Normal ↔ Small)</b></summary>
+
+This REAPER script toggles the **selected folder track** between its two main collapse states:  
+- **Normal view** (fully expanded)  
+- **Small view** (minimized but still visible)  
+
+It makes working with large projects much faster, since you can quickly reduce clutter while keeping track of your folders.
+
+⚠️ **Note:** This script is **not originally mine**.  
+It is a **modified version of MPL’s script**
+
+## ✨ Features
+- Works on the **selected folder track**.  
+- Toggles between **normal** and **small** (not supercollapsed, so the folder is still visible).  
+- Automatically applies the change to **all child tracks inside the folder**.  
+
+## 🎚 Motivation
+The native REAPER folder collapse options (Normal, Small, Collapsed, Hidden) don’t provide a direct toggle between **Normal** and **Small**. 
+This script makes it instant and consistent — perfect for workflows with many tracks where visibility and organization are key.  
+
+I personally assigned it to the **`Q` key**, so I can quickly collapse or expand any folder with a single keystroke.  
+
+## 🛠 Installation
+1. Copy the script file (`CollapseToSmall.lua`) into your REAPER Scripts folder.  
+2. In REAPER, open the **Action List**, click *Load…*, and select the script.  
+
+## ⚙️ Usage
+1. Select any folder track.  
+2. Run the script (or press your assigned shortcut, e.g., **`Q`**).  
+3. The folder will toggle between **normal** and **small collapse state**, applying the same setting to all of its child tracks.  
+
+</details>

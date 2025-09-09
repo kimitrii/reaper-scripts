@@ -1,5 +1,5 @@
--- @description Toggle between normal and supercollapsed selected folders state
--- @version 1.01
+-- @description Toggle between normal and small collapse selected folders state
+-- @version 1.02
 -- @author MPL (modified by Kimitri)
 -- @changelog
 --    # VF independent
