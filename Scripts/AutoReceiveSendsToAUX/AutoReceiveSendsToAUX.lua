@@ -67,7 +67,8 @@ function Main()
 
       if src ~= new_track and not IsInsideAUXFolder(src, aux_name) and not IsFolder(src) and HasParent(src) then
         if not SendExists(src, new_track) then
-          reaper.CreateTrackSend(src, new_track)
+          local send_idx = reaper.CreateTrackSend(src, new_track)
+          reaper.SetTrackSendInfo_Value(src, 0, send_idx, "I_MIDIFLAGS", -1)
         end
       end
     end

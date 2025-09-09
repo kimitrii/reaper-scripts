@@ -86,7 +86,8 @@ if aux_name then
       local auxTracks = GetTracksInsideFolder(auxFolder)
       for _, tr in ipairs(auxTracks) do
         if not SendExists(selTrack, tr) then
-          reaper.CreateTrackSend(selTrack, tr)
+          local send_idx = reaper.CreateTrackSend(selTrack, tr)
+          reaper.SetTrackSendInfo_Value(selTrack, 0, send_idx, "I_MIDIFLAGS", -1)
         end
       end
     end
