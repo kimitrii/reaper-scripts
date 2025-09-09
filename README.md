@@ -204,3 +204,9 @@ I personally assigned it to the **`Q` key**, so I can quickly collapse or expand
 3. The folder will toggle between **normal** and **small collapse state**, applying the same setting to all of its child tracks.  
 
 </details>
+
+Arrange view:
+<img width="1920" height="982" alt="image" src="https://github.com/user-attachments/assets/b9be1ddb-c5b8-4145-95a8-af8034fd334e" />
+
+Mixer view:
+<img width="1920" height="1018" alt="image" src="https://github.com/user-attachments/assets/eabe31f9-5a8b-47ab-b794-91aa06414627" />
