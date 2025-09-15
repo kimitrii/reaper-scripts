@@ -1,0 +1,14 @@
+// @description Center edit cursor in arrange view
+// @version 1.0
+// @author Kimitri
+
+state = GetPlayStateEx(0); // 1 = playing, 2 = paused, 4 = recording
+GetSet_ArrangeView2(0, 0, 0, 0, start, end);
+wide = end - start;
+
+cursor = (state & 1) || (state & 4) ? GetPlayPosition() : GetCursorPosition();
+
+extension_api("BR_SetArrangeView", 0, cursor - wide/2, cursor + wide/2);
+
+function NoUndo()(abs(0));
+defer("NoUndo()");

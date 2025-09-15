@@ -205,6 +205,39 @@ I personally assigned it to the **`Q` key**, so I can quickly collapse or expand
 
 </details>
 
+<details>
+ <summary><b>Center Edit Cursor in Arrange View</b></summary>
+
+This REAPER script automatically keeps the **edit cursor centered** in the arrange view whenever it is moved.  
+It makes navigating large projects smoother, since you don’t lose sight of the cursor when scrolling horizontally.  
+
+## ✨ Features
+- Centers the arrange view on the **edit cursor** position.  
+- Works whether REAPER is **playing, recording, or stopped**.  
+- Lightweight and runs in the background.  
+- Designed to be used inside **Custom Actions** as the **last step**, so that every action that moves the cursor ends with the arrange view centered.  
+
+## 🎚 Motivation
+When moving the edit cursor left or right (with arrow keys, shortcuts, or actions), REAPER by default allows the cursor to move toward the edges of the screen before scrolling.  
+This script fixes that by always keeping the cursor **in the middle of the arrange view**, similar to workflows in other DAWs.  
+
+It is especially powerful when combined with **Custom Actions**.  
+For example:  
+- *Move cursor to previous measure* → *Select item under cursor* → **CenterEditCursor.eel**  
+- That way, after the main actions run, the view will always recenter automatically.  
+
+## 🛠 Installation
+1. Copy the script file (`CenterEditCursor.eel`) into your REAPER Scripts folder.  
+2. In REAPER, open the **Action List**, click *Load…*, and select the script.  
+3. Add it as the **last step** in any Custom Action that moves the edit cursor.  
+
+## ⚙️ Usage
+- After activation in a Custom Action, every time you move the edit cursor (e.g., with left/right arrow shortcuts), the arrange view will scroll so the cursor stays centered.  
+- Works seamlessly during playback or recording as well.  
+
+</details>
+
+
 Arrange view:
 <img width="1920" height="982" alt="image" src="https://github.com/user-attachments/assets/b9be1ddb-c5b8-4145-95a8-af8034fd334e" />
 
