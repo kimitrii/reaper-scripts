@@ -259,7 +259,7 @@ In this setup, recording sessions are structured in folders, and often you need 
 Perfect for batch actions like coloring, volume adjustments, live record, FX application, or exporting stems.
 
 ## 🛠 Installation
-1. Copy the script file (`SelectChildTracks.lua`) into your REAPER Scripts folder.  
+1. Copy the script file (`Select child tracks inside folders (exclude folders and AUX).lua`) into your REAPER Scripts folder.  
 2. In REAPER, open the **Action List**, click *Load…*, and select the script.  
 
 ## ⚙️ Usage
