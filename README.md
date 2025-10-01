@@ -272,7 +272,7 @@ Perfect for batch actions like coloring, volume adjustments, live record, FX app
 
 
 Arrange view:
-<img width="1920" height="982" alt="image" src="https://github.com/user-attachments/assets/b9be1ddb-c5b8-4145-95a8-af8034fd334e" />
+<img width="1920" height="1002" alt="image" src="https://github.com/user-attachments/assets/6e372c1a-2b1f-4814-a1fe-44c0cb90f105" />
 
 Mixer view:
 <img width="1920" height="1018" alt="image" src="https://github.com/user-attachments/assets/eabe31f9-5a8b-47ab-b794-91aa06414627" />
