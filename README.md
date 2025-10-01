@@ -237,6 +237,39 @@ For example:
 
 </details>
 
+<details>
+ <summary><b>Select child tracks inside folders (exclude folders and AUX)</b></summary>
+
+This REAPER script automatically **selects all child tracks inside all folders**, while skipping:  
+- The **folder parent tracks** themselves.  
+- Any tracks inside a folder named **AUX**.  
+
+It is useful for quickly select only the *working tracks* (child tracks) without affecting your AUX or routing structures, in Kimitri default project template.
+
+## ✨ Features
+- Selects **all child tracks inside all folders**.  
+- Skips **folder parents** (only selects children).  
+- Completely ignores **AUX folders and their children**.  
+- Works across the entire project in one action.  
+
+## 🎚 Motivation
+The main inspiration comes from the **Kimitri Project Default Template**.  
+In this setup, recording sessions are structured in folders, and often you need to **quickly arm all tracks for live recording** (without selecting folders or AUX).   
+
+Perfect for batch actions like coloring, volume adjustments, live record, FX application, or exporting stems.
+
+## 🛠 Installation
+1. Copy the script file (`SelectChildTracks.lua`) into your REAPER Scripts folder.  
+2. In REAPER, open the **Action List**, click *Load…*, and select the script.  
+
+## ⚙️ Usage
+1. Run the script from the **Action List**, or assign it to a shortcut key or toolbar button.  
+2. All child tracks inside folders will be selected automatically.  
+3. AUX folder children and folder parents will remain unselected.  
+
+</details>
+
+
 
 Arrange view:
 <img width="1920" height="982" alt="image" src="https://github.com/user-attachments/assets/b9be1ddb-c5b8-4145-95a8-af8034fd334e" />
