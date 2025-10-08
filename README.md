@@ -269,6 +269,82 @@ Perfect for batch actions like coloring, volume adjustments, live record, FX app
 
 </details>
 
+<details>
+ <summary><b>Action Toolbar (Icon Browser)</b></summary>
+
+This REAPER script creates a **dockable toolbar window** with **visual icons organized by categories**, allowing you to quickly run any REAPER action or custom script through an intuitive icon-based interface.
+
+Instead of manually searching the Action List or using native toolbars, you can build your own **visual browser of actions**, categorized and persistent between sessions.
+
+## ✨ Features
+- **Dockable custom window** integrated into REAPER’s interface  
+- **Sidebar menu** for organizing actions by **categories**  
+- Each category displays a **grid of icons**, each linked to a REAPER command ID  
+- **Dynamic creation** of categories and buttons directly from the interface  
+- **Persistent configuration** via an `.ini` file  
+- Supports **hover/active icon states** (3-frame sprites)  
+- **Independent scrolling** for menu and content area  
+- Remembers window docking position between sessions  
+
+## 🎚 Motivation
+REAPER’s default toolbars are powerful, but they can become cluttered or limited when managing dozens of scripts or actions.  
+The **Action Toolbar (Icon Browser)** provides a **visual, categorized, and persistent environment**, ideal for users who want a fast, intuitive, and visually organized workflow similar to visual plugin browsers or DAW launchpads.
+
+Perfect for producers, sound designers, and engineers who rely on many custom scripts and want quick visual access to them.
+
+## 🛠 Installation
+1. Copy the script file `Action Toolbar (Icon Browser).lua` into your REAPER Scripts folder.  
+2. In REAPER, open the **Action List**, click *Load…*, and select the script.  
+
+## ⚙️ Usage
+1. Run the script from the **Action List**, or assign it to a toolbar button or shortcut.  
+2. Use the **“+” button** on the left to create a new **category**.  
+3. Select a category and use the **“+” button** on the right to add **action buttons**.  
+   - Provide a **name**, a REAPER **command ID**, and the **icon filename** (e.g. `myicon.png`).  
+   - The new button is instantly saved and ready to use.  
+4. Click any icon to **run its REAPER command instantly**.  
+5. Press `Esc` or re-run the script to close the toolbar.
+
+**Obs::** Place your PNG icons in  `/Data/toolbar_icons/` (REAPER’s native toolbar icons folder).  
+
+### 🧩 Editing or Deleting Buttons
+All data is stored in:  
+```
+/scripts/ActionToolbarIconBrowser/ActionToolbarIconBrowserConfig.ini
+```
+
+> 🗂 **Note:**  
+> The configuration **folder** (`/scripts/ActionToolbarIconBrowser/`) is automatically created the first time you run the script.  
+> The `.ini` file will be created automatically once you add your first category or button.
+
+Each category is a section in the file:
+```
+[CategoryName]
+ButtonName=CommandID,IconFile.png
+```
+To **edit** a button → change its values (name, command, or icon).  
+To **delete** a button → remove its line.  
+Save the file and re-run the script to apply changes.
+
+### 📁 Example `.ini` Structure
+```
+[Menu]
+Editing=EDIT
+Mixing=MIX
+--
+[EDIT]
+Split=_SWS_SPLIT,split_icon.png
+Trim=_SWS_TRIM,trim_icon.png
+--
+[MIX]
+ReaEQ=_RS123456,reaeq_icon.png
+ReaComp=_RS789012,reacomp_icon.png
+```
+
+> 💡 Tip: Use **3-frame PNG sprites** (normal, hover, active) for smooth visual feedback — turning your toolbar into a **custom plugin browser** or **macro pad** directly inside REAPER.
+
+</details>
+
 
 
 Arrange view:
