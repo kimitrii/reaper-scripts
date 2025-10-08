@@ -276,6 +276,9 @@ This REAPER script creates a **dockable toolbar window** with **visual icons org
 
 Instead of manually searching the Action List or using native toolbars, you can build your own **visual browser of actions**, categorized and persistent between sessions.
 
+<img width="1920" height="985" alt="image" src="https://github.com/user-attachments/assets/815dec33-886d-4986-8ad1-302c27c044fe" />
+
+
 ## ✨ Features
 - **Dockable custom window** integrated into REAPER’s interface  
 - **Sidebar menu** for organizing actions by **categories**  
