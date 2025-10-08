@@ -310,6 +310,16 @@ Perfect for producers, sound designers, and engineers who rely on many custom sc
 
 **Obs::** Place your PNG icons in  `/Data/toolbar_icons/` (REAPER’s native toolbar icons folder).  
 
+### 🎛 Using Icons to Insert FX
+If you want to use an icon to **insert a specific FX**, follow these steps:
+
+1. In REAPER’s **FX Browser**, **right-click** the FX you want.  
+2. Choose **"Create shortcut"**, but **don’t assign any key** — just confirm.  
+   - This creates a new **Action** in the Action List that inserts that FX.  
+3. Open the **Action List**, find that new action, and **copy its Command ID** (e.g. `_RSa1b2c3d4e5`).  
+4. When adding a button in the Icon Browser, paste that **Command ID** as the button’s action.  
+   - Now, clicking that icon will instantly **insert your chosen FX**.
+
 ### 🧩 Editing or Deleting Buttons
 All data is stored in:  
 ```
