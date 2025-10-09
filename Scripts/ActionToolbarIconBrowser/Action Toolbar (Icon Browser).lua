@@ -299,11 +299,17 @@ local function draw_content(mx, my, lmb)
                 line_height = 0
             end
 
+            line_height = math.max(line_height, frame_h)
+
             if y + frame_h >= 0 and y <= visible_limit then
                 local hover = mx > x and mx < x + frame_w and my > y and my < y + frame_h
                 local active = (active_button == btn)
                 local src_x = active and frame_w * 2 or (hover and frame_w or 0)
-                gfx.blit(img_id, 1, 0, src_x, 0, frame_w, frame_h, x, y, frame_w, frame_h)
+
+                local offset_y = (line_height - frame_h) / 2
+
+                gfx.blit(img_id, 1, 0, src_x, 0, frame_w, frame_h, x, y + offset_y, frame_w, frame_h)
+
                 if hover and lmb and not was_lmb then
                     active_button = btn
                     run_action(btn.cmd)
@@ -311,9 +317,9 @@ local function draw_content(mx, my, lmb)
             end
 
             x = x + frame_w + spacing_x
-            line_height = math.max(line_height, frame_h)
         end
     end
+
 
     y = y + line_height + spacing_y
 
@@ -370,6 +376,10 @@ function main()
 
     draw_menu(mx, my, lmb)
     draw_content(mx, my, lmb)
+
+    if was_lmb and not lmb then
+        active_button = nil
+    end
 
     was_lmb = lmb
     gfx.update()
