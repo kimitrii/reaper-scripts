@@ -161,6 +161,8 @@ end
 ------------------------------------------------------------
 local menu_scroll_y = 0
 local menu_max_scroll = 0
+local scroll_y = 0
+local max_scroll = 0
 
 local function draw_menu(mx, my, lmb)
     local x, y = 20, 40 - menu_scroll_y
@@ -205,7 +207,10 @@ local function draw_menu(mx, my, lmb)
 
             -- Click
             if hover and lmb and not was_lmb then
-                active_category = btn.category
+                if active_category ~= btn.category then
+                    active_category = btn.category
+                    scroll_y = 0 
+                end
             end
         end
         y = y + btn_h + 10
@@ -248,8 +253,6 @@ end
 ------------------------------------------------------------
 -- Draw content with scroll (optimized)
 ------------------------------------------------------------
-local scroll_y = 0
-local max_scroll = 0
 
 local function draw_content(mx, my, lmb)
     local x_start = 180
