@@ -305,7 +305,8 @@ local function draw_content(mx, my, lmb)
             line_height = math.max(line_height, frame_h)
 
             if y + frame_h >= 0 and y <= visible_limit then
-                local hover = mx > x and mx < x + frame_w and my > y and my < y + frame_h
+                local offset_y = (line_height - frame_h) / 2
+                local hover = mx > x and mx < x + frame_w and my > y + offset_y and my < y + offset_y + frame_h
                 local active = (active_button == btn)
                 local src_x = active and frame_w * 2 or (hover and frame_w or 0)
 
