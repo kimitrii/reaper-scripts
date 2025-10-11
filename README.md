@@ -320,6 +320,12 @@ If you want to use an icon to **insert a specific FX**, follow these steps:
 4. When adding a button in the Icon Browser, paste that **Command ID** as the button’s action.  
    - Now, clicking that icon will instantly **insert your chosen FX**.
 
+### 🧭 Keyboard Navigation
+You can also navigate the interface using the **arrow keys**:  
+- **↑ / ↓** — Change the **selected category** in the sidebar  
+- **← / →** — Move between **icons** in the current category  
+- **Enter** — Run the selected action  
+
 ### 🧩 Editing or Deleting Buttons
 All data is stored in:  
 ```
