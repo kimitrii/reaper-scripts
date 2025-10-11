@@ -20,6 +20,14 @@ end
 local dock_state = tonumber(reaper.GetExtState(section, "dock_state")) or 0
 gfx.init(script_name, 600, 500, dock_state)
 
+reaper.defer(function()
+    local hwnd = reaper.JS_Window_Find(script_name, true)
+    if hwnd then
+        reaper.JS_Window_SetFocus(hwnd)
+    end
+end)
+
+
 ------------------------------------------------------------
 -- Colors and fonts
 ------------------------------------------------------------
@@ -144,7 +152,6 @@ local function load_image(path)
     end
     return nil
 end
-
 
 ------------------------------------------------------------
 -- Run content button actions
