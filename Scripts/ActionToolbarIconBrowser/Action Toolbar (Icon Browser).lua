@@ -97,6 +97,8 @@ end
 local menu_buttons, content_buttons = parse_ini(config_path)
 
 local active_category = menu_buttons[1] and menu_buttons[1].category or nil
+local active_menu_index = 1
+local active_content_index = 0
 
 ------------------------------------------------------------
 -- save data to /FXCustomBrowserConfig/FXBrowserConfig.ini
@@ -290,7 +292,7 @@ local function draw_content(mx, my, lmb)
     ------------------------------------------------------------
     --  Draw content
     ------------------------------------------------------------
-    for _, btn in ipairs(list) do
+    for i, btn in ipairs(list) do
         local img_data = loaded_images[btn.image]
         if img_data then
             local img_id, iw, ih = img_data.id, img_data.w / 3, img_data.h
@@ -307,15 +309,23 @@ local function draw_content(mx, my, lmb)
             if y + frame_h >= 0 and y <= visible_limit then
                 local offset_y = (line_height - frame_h) / 2
                 local hover = mx > x and mx < x + frame_w and my > y + offset_y and my < y + offset_y + frame_h
+
+                -- Keyboard selected icon
+                local selected = (i == active_content_index) 
+
                 local active = (active_button == btn)
                 local src_x = active and frame_w * 2 or (hover and frame_w or 0)
 
-                local offset_y = (line_height - frame_h) / 2
-
                 gfx.blit(img_id, 1, 0, src_x, 0, frame_w, frame_h, x, y + offset_y, frame_w, frame_h)
+
+                if selected then
+                    gfx.set(0.2, 0.6, 1.0, 1) 
+                    gfx.rect(x - 2, y + offset_y - 2, frame_w + 4, frame_h + 4, false)
+                end
 
                 if hover and lmb and not was_lmb then
                     active_button = btn
+                    active_content_index = i
                     run_action(btn.cmd)
                 end
             end
@@ -323,7 +333,6 @@ local function draw_content(mx, my, lmb)
             x = x + frame_w + spacing_x
         end
     end
-
 
     y = y + line_height + spacing_y
 
@@ -348,7 +357,7 @@ local function draw_content(mx, my, lmb)
                 end
             end
         else
-            reaper.ShowMessageBox("NNo active category.", "Warning", 0)
+            reaper.ShowMessageBox("No active category.", "Warning", 0)
         end
     end
 
@@ -394,6 +403,61 @@ function main()
     if char == 27 then
         gfx.quit()
         return
+    end
+
+    ------------------------------------------------------------
+    -- ↑ up arrow = previous menu
+    ------------------------------------------------------------
+    if char == 30064 then
+        if #menu_buttons > 0 then
+            active_menu_index = math.max(1, active_menu_index - 1)
+            active_category = menu_buttons[active_menu_index].category
+            active_content_index = 0
+            scroll_y = 0
+        end
+    end
+
+    ------------------------------------------------------------
+    -- ↓ down arrow = next menu
+    ------------------------------------------------------------
+    if char == 1685026670 then
+        if #menu_buttons > 0 then
+            active_menu_index = math.min(#menu_buttons, active_menu_index + 1)
+            active_category = menu_buttons[active_menu_index].category
+            active_content_index = 0
+            scroll_y = 0
+        end
+    end
+
+    ------------------------------------------------------------
+    -- ← Left arrow = navegate to the left content items
+    ------------------------------------------------------------
+    if char == 1818584692 then
+        local list = content_buttons[active_category] or {}
+        if #list > 0 then
+            active_content_index = math.max(0, active_content_index - 1)
+        end
+    end
+
+    ------------------------------------------------------------
+    -- → Right arrow = Navegate to right content items
+    ------------------------------------------------------------
+    if char == 1919379572 then
+        local list = content_buttons[active_category] or {}
+        if #list > 0 then
+            active_content_index = math.min(#list, active_content_index + 1)
+        end
+    end
+
+    ------------------------------------------------------------
+    -- Enter = executar ação do item ativo
+    ------------------------------------------------------------
+    if char == 13 then
+        local list = content_buttons[active_category] or {}
+        local btn = list[active_content_index]
+        if btn then
+            run_action(btn.cmd)
+        end
     end
 
     if char >= 0 then
