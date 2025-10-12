@@ -409,8 +409,12 @@ function main()
 
 -- If ESC is pressed, exit the script
     if char == 27 then
-        gfx.quit()
-        return
+        if active_content_index ~= 0 then
+            active_content_index = 0
+        else 
+            gfx.quit()
+            return
+        end
     end
 
     ------------------------------------------------------------
