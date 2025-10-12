@@ -183,7 +183,7 @@ local function draw_menu(mx, my, lmb)
     ------------------------------------------------------------
     -- Then draw the normal menu buttons (as before)
     ------------------------------------------------------------
-    for _, btn in ipairs(menu_buttons) do
+    for i, btn in ipairs(menu_buttons) do
         if y + btn_h >= 0 and y <= visible_limit then
             local hover = mx > x and mx < x + btn_w and my > y and my < y + btn_h
             local active = (btn.category == active_category)
@@ -220,6 +220,7 @@ local function draw_menu(mx, my, lmb)
                     active_category = btn.category
                     scroll_y = 0 
                     active_content_index = 0
+                    active_menu_index = i
                 end
             end
         end
