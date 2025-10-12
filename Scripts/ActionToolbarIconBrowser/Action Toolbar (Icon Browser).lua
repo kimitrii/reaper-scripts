@@ -426,6 +426,17 @@ function main()
             active_category = menu_buttons[active_menu_index].category
             active_content_index = 0
             scroll_y = 0
+
+            local btn_h, spacing = 35, 10
+            local top_visible = menu_scroll_y
+            local bottom_visible = menu_scroll_y + gfx.h - 80
+            local btn_y = (active_menu_index - 1) * (btn_h + spacing)
+            if btn_y < top_visible then
+                menu_scroll_y = btn_y
+            elseif btn_y + btn_h > bottom_visible then
+                menu_scroll_y = btn_y + btn_h - (gfx.h - 80)
+            end
+            menu_scroll_y = math.max(0, math.min(menu_scroll_y, menu_max_scroll))
         end
     end
 
@@ -438,6 +449,17 @@ function main()
             active_category = menu_buttons[active_menu_index].category
             active_content_index = 0
             scroll_y = 0
+            
+            local btn_h, spacing = 35, 10
+            local top_visible = menu_scroll_y
+            local bottom_visible = menu_scroll_y + gfx.h - 80
+            local btn_y = (active_menu_index - 1) * (btn_h + spacing)
+            if btn_y < top_visible then
+                menu_scroll_y = btn_y
+            elseif btn_y + btn_h > bottom_visible then
+                menu_scroll_y = btn_y + btn_h - (gfx.h - 80)
+            end
+            menu_scroll_y = math.max(0, math.min(menu_scroll_y, menu_max_scroll))
         end
     end
 
