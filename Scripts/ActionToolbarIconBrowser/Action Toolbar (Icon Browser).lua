@@ -219,6 +219,7 @@ local function draw_menu(mx, my, lmb)
                 if active_category ~= btn.category then
                     active_category = btn.category
                     scroll_y = 0 
+                    active_content_index = 0
                 end
             end
         end
