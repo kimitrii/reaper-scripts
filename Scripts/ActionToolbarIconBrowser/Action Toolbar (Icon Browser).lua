@@ -471,6 +471,43 @@ function main()
         local list = content_buttons[active_category] or {}
         if #list > 0 then
             active_content_index = math.max(0, active_content_index - 1)
+
+            -- Keep item selected
+            if active_content_index > 0 then
+                local img_data = loaded_images[list[active_content_index].image]
+                if img_data then
+                    local iw, ih = img_data.w / 3, img_data.h
+                    local spacing_x, spacing_y = 20, 20
+                    local x_start, y_start = 180, 40
+                    local available_width = gfx.w - x_start - 20
+
+                    local x, y = x_start, y_start
+                    for i = 1, active_content_index - 1 do
+                        local btn_img = loaded_images[list[i].image]
+                        if btn_img then
+                            local iw2, ih2 = btn_img.w / 3, btn_img.h
+                            if x + iw2 > gfx.w - 20 then
+                                x = x_start
+                                y = y + ih2 + spacing_y
+                            end
+                            x = x + iw2 + spacing_x
+                        end
+                    end
+
+                    local top_visible = scroll_y
+                    local bottom_visible = scroll_y + gfx.h - 100
+                    local item_top = y
+                    local item_bottom = y + ih
+
+                    if item_top < top_visible then
+                        scroll_y = item_top
+                    elseif item_bottom > bottom_visible then
+                        scroll_y = item_bottom - (gfx.h - 100)
+                    end
+
+                    scroll_y = math.max(0, math.min(scroll_y, max_scroll))
+                end
+            end
         end
     end
 
@@ -481,6 +518,43 @@ function main()
         local list = content_buttons[active_category] or {}
         if #list > 0 then
             active_content_index = math.min(#list, active_content_index + 1)
+
+            -- Keep item selected
+            if active_content_index > 0 then
+                local img_data = loaded_images[list[active_content_index].image]
+                if img_data then
+                    local iw, ih = img_data.w / 3, img_data.h
+                    local spacing_x, spacing_y = 20, 20
+                    local x_start, y_start = 180, 40
+                    local available_width = gfx.w - x_start - 20
+
+                    local x, y = x_start, y_start
+                    for i = 1, active_content_index - 1 do
+                        local btn_img = loaded_images[list[i].image]
+                        if btn_img then
+                            local iw2, ih2 = btn_img.w / 3, btn_img.h
+                            if x + iw2 > gfx.w - 20 then
+                                x = x_start
+                                y = y + ih2 + spacing_y
+                            end
+                            x = x + iw2 + spacing_x
+                        end
+                    end
+
+                    local top_visible = scroll_y
+                    local bottom_visible = scroll_y + gfx.h - 100
+                    local item_top = y
+                    local item_bottom = y + ih
+
+                    if item_top < top_visible then
+                        scroll_y = item_top
+                    elseif item_bottom > bottom_visible then
+                        scroll_y = item_bottom - (gfx.h - 100)
+                    end
+
+                    scroll_y = math.max(0, math.min(scroll_y, max_scroll))
+                end
+            end
         end
     end
 
