@@ -319,6 +319,10 @@ local function draw_content(mx, my, lmb)
                 local offset_y = (line_height - frame_h) / 2
                 local hover = mx > x and mx < x + frame_w and my > y + offset_y and my < y + offset_y + frame_h
 
+                if hover then
+                    hovered_icon_name = btn.name
+                end
+
                 -- Keyboard selected icon
                 local selected = (i == active_content_index) 
 
@@ -369,6 +373,17 @@ local function draw_content(mx, my, lmb)
             reaper.ShowMessageBox("No active category.", "Warning", 0)
         end
     end
+
+    if hovered_icon_name then
+        gfx.set(0, 0, 0, 0.75)
+        local text_w, text_h = gfx.measurestr(hovered_icon_name)
+        gfx.rect(mx + 12, my + 20, text_w + 10, text_h + 6, true)
+        gfx.set(1, 1, 1, 1)
+        gfx.x, gfx.y = mx + 17, my + 23
+        gfx.drawstr(hovered_icon_name)
+    end
+    hovered_icon_name = nil
+
 
     ------------------------------------------------------------
     -- max scroll based on total height
